@@ -7,6 +7,6 @@ router.post('/', authenticateToken, createIssueRecord);
 router.get('/', fetchAllIssues);
 router.get('/:id', fetchSingleIssue);
 router.patch('/:id', authenticateToken, modifyIssue);
-
+router.delete('/:id', authenticateToken, requireRole(['maintainer']), removeIssue);
 
 export default router;
