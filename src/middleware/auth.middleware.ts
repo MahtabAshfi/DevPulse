@@ -25,7 +25,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
     req.user = jwt.verify(token, process.env.JWT_SECRET as string) as TokenPayload;
     next();
   } catch {
-    sendError(res, StatusCodes.UNAUTHORIZED, "Invalid or expired JWT token");
+    sendError(res, StatusCodes.UNAUTHORIZED, "Invalid JWT token");
   }
 };
 
